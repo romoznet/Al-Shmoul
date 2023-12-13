@@ -912,6 +912,7 @@ header.headerAnimate {
   gap: 20px;
   padding: 32px 24px 24px;
   background-color: #fff;
+  border-radius: 12px;
   box-shadow: var(--BigShadow);
 }
 .about .missionVision .focus .icon,
@@ -996,8 +997,8 @@ header.headerAnimate {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  row-gap: 4px;
   margin: 0;
+  padding-top: 4px;
 }
 .about .missionVision .focus ul li,
 .about .missionVision .mission ul li,
@@ -1007,14 +1008,11 @@ header.headerAnimate {
   font-size: 14px;
   font-weight: bold;
   text-transform: capitalize;
-}
-.about .missionVision .focus ul li::before,
-.about .missionVision .mission ul li::before,
-.about .missionVision .vision ul li::before,
-.about .missionVision .values ul li::before {
-  content: ".";
-  color: var(--mainColor);
-  font-size: 20px;
+  background-color: rgba(148, 102, 66, 0.1019607843);
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px dashed rgba(148, 102, 66, 0.3019607843);
+  transition: var(--transition);
 }
 @media (max-width: 768px) {
   .about .missionVision .focus ul li,
@@ -1024,19 +1022,26 @@ header.headerAnimate {
     font-size: 12px;
   }
 }
+.about .missionVision .focus ul li:hover,
+.about .missionVision .mission ul li:hover,
+.about .missionVision .vision ul li:hover,
+.about .missionVision .values ul li:hover {
+  background-color: var(--mainColor);
+  color: var(--whiteColor);
+}
 
-.ourServices {
+.Team {
   background-color: rgba(252, 172, 74, 0.1019607843);
   padding: 100px 0 40px;
   margin-top: 80px;
   position: relative;
 }
-.ourServices .mainServices {
+.Team .mainServices {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 }
-.ourServices .mainServices .service {
+.Team .mainServices .service {
   padding: 24px;
   border-radius: 24px;
   border: 1px dashed var(--secondColor);
@@ -1048,7 +1053,7 @@ header.headerAnimate {
   position: relative;
   isolation: isolate;
 }
-.ourServices .mainServices .service::before {
+.Team .mainServices .service::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -1062,60 +1067,60 @@ header.headerAnimate {
   transition: var(--transition);
 }
 @media (max-width: 768px) {
-  .ourServices .mainServices .service {
+  .Team .mainServices .service {
     background-color: var(--whiteColor);
     min-width: 300px;
   }
 }
-.ourServices .mainServices .service img {
+.Team .mainServices .service img {
   width: 32px;
   height: 32px;
   -o-object-fit: contain;
      object-fit: contain;
   transition: var(--transition);
 }
-.ourServices .mainServices .service .info {
+.Team .mainServices .service .info {
   display: flex;
   flex-direction: column;
   transition: var(--transition);
   gap: 4px;
 }
-.ourServices .mainServices .service .info .name {
+.Team .mainServices .service .info .name {
   font-family: "PoppinsBold", Sans-serif;
   color: var(--secondColor);
   transition: var(--transition);
 }
-.ourServices .mainServices .service .info .subName {
+.Team .mainServices .service .info .subName {
   color: var(--darkColor);
   transition: var(--transition);
 }
-.ourServices .mainServices .service .info .des {
+.Team .mainServices .service .info .des {
   color: #777;
   font-size: 14px;
   margin-top: 8px;
   transition: var(--transition);
 }
 @media (max-width: 768px) {
-  .ourServices .mainServices .service .info .des {
+  .Team .mainServices .service .info .des {
     font-size: 12px;
   }
 }
-.ourServices .mainServices .service:hover::before {
+.Team .mainServices .service:hover::before {
   opacity: 1;
 }
-.ourServices .mainServices .service:hover img {
+.Team .mainServices .service:hover img {
   filter: brightness(0) invert(1);
 }
-.ourServices .mainServices .service:hover .info .name {
+.Team .mainServices .service:hover .info .name {
   color: var(--whiteColor);
 }
-.ourServices .mainServices .service:hover .info .subName {
+.Team .mainServices .service:hover .info .subName {
   color: var(--whiteColor);
 }
-.ourServices .mainServices .service:hover .info .des {
+.Team .mainServices .service:hover .info .des {
   color: #fff;
 }
-.ourServices .logo {
+.Team .logo {
   width: 124px;
   height: 124px;
   display: flex;
@@ -1129,25 +1134,25 @@ header.headerAnimate {
   transform: translateX(-50%);
   outline: 12px solid #fff;
 }
-.ourServices .logo img {
+.Team .logo img {
   height: 64px;
   aspect-ratio: 1/1;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.ourServices .top {
+.Team .top {
   display: flex;
   align-items: end;
   justify-content: space-between;
   gap: 24px;
   margin-bottom: 48px;
 }
-.ourServices .top .swiperControl {
+.Team .top .swiperControl {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.ourServices .shape4 {
+.Team .shape4 {
   position: absolute;
   left: 0;
   bottom: 30px;
@@ -1381,27 +1386,23 @@ footer .container h6 {
 }
 
 .investments {
-  background-color: var(--mainColor);
+  background-color: #f8f8f8;
   position: relative;
   z-index: 2;
   padding: 100px 0 60px;
-  background-image: linear-gradient(60deg, rgba(92, 96, 104, 0.7058823529), rgba(92, 96, 104, 0.8352941176)), url(../img/Saudi-Arabia-2560x1248.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.investments .title {
-  color: var(--whiteColor);
 }
 .investments .inner {
-  background-color: var(--mainColor);
+  background-color: var(--whiteColor);
   padding: 24px;
+  border-radius: 12px;
   height: 100%;
+  box-shadow: var(--BigShadow);
 }
 .investments .inner .subTitle {
-  color: var(--whiteColor);
+  color: var(--darkColor);
   font-weight: bold;
   margin-bottom: 16px;
+  text-transform: uppercase;
 }
 .investments .inner .images {
   display: flex;
@@ -1421,28 +1422,28 @@ footer .container h6 {
   content: "";
   display: flex;
   position: absolute;
-  right: 0;
+  left: 0;
   bottom: 0;
-  width: 100%;
-  height: 0%;
-  background-color: var(--whiteColor);
+  width: 0%;
+  height: 100%;
+  background-color: var(--mainColor);
   transition: var(--transition);
   z-index: -1;
+  border-radius: 8px;
 }
 .investments .inner .images .logo img {
   height: 100%;
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  filter: brightness(0) invert(1);
   transition: var(--transition);
 }
 .investments .inner .images .logo:hover::after {
   content: "";
-  height: 100%;
+  width: 100%;
 }
 .investments .inner .images .logo:hover img {
-  filter: none;
+  filter: brightness(0) invert(1);
 }
 
 .partners {
@@ -1488,13 +1489,13 @@ footer .container h6 {
 }
 .partners .swiperControl {
   position: relative;
-  padding-top: 60px;
+  padding: 8px;
 }
 .partners .swiperControl .swiper-pagination {
   justify-content: center;
 }
 .partners .swiperControl .swiper-pagination .swiper-pagination-bullet {
-  background-color: var(--whiteColor);
+  background-color: var(--mainColor);
 }
 .partners .inner {
   background-color: var(--mainColor);
@@ -1506,4 +1507,100 @@ footer .container h6 {
   color: var(--whiteColor);
   font-weight: bold;
   margin-bottom: 16px;
+}
+
+.flipCard {
+  width: 100%;
+  height: 450px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  perspective: 1000px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.flipCard .cardFront {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-size: cover !important;
+  background-position: top !important;
+  background-repeat: no-repeat !important;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.flipCard .cardFront .content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto;
+  color: var(--whiteColor);
+  gap: 4px;
+}
+.flipCard .cardFront .content .cardTitle {
+  font-weight: bold;
+  color: var(--whiteColor);
+}
+.flipCard .cardFront .content .job {
+  color: var(--whiteColor);
+  font-size: 12px;
+}
+.flipCard .cardBack {
+  padding: 20px;
+  position: absolute;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.0509803922);
+  background-color: #fff;
+}
+.flipCard .cardBack .content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.flipCard .cardBack .content img {
+  width: 48px;
+  height: 48px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 16px;
+}
+.flipCard .cardBack .content .cardTitle {
+  font-weight: bold;
+  color: var(--mainColor);
+  margin-bottom: 4px;
+}
+.flipCard .cardBack .content .job {
+  color: var(--grayColor);
+  font-size: 14px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.flipCard .cardBack .content .des {
+  color: var(--grayColor);
+  font-size: 12px;
+  overflow: auto;
+}
+.flipCard:hover {
+  z-index: 2;
+}
+.flipCard:hover .cardFront {
+  transform: rotateY(-180deg);
+}
+.flipCard:hover .cardBack {
+  transform: rotateY(0deg);
 }/*# sourceMappingURL=style.css.map */
