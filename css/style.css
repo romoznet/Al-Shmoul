@@ -1,5 +1,7 @@
 :root {
   --mainColor: #d09458;
+  --mainColor05: hsla(30, 57%, 58%, 0.1);
+  --mainColor20: #d0945833;
   --secondColor: #946642;
   --whiteColor: #ffffff;
   --darkColor: #2c2c2c;
@@ -893,27 +895,17 @@ header.headerAnimate {
     font-size: 12px;
   }
 }
-.about .missionVision {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-@media (max-width: 768px) {
-  .about .missionVision {
-    padding: 0 24px;
-  }
-}
 .about .missionVision .focus,
 .about .missionVision .mission,
 .about .missionVision .vision,
 .about .missionVision .values {
-  flex: 1 40%;
   display: flex;
   gap: 20px;
   padding: 32px 24px 24px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: var(--BigShadow);
+  height: 100%;
 }
 .about .missionVision .focus .icon,
 .about .missionVision .mission .icon,
@@ -964,14 +956,6 @@ header.headerAnimate {
   color: var(--mainColor);
   text-transform: uppercase;
 }
-@media (max-width: 768px) {
-  .about .missionVision .focus .name,
-  .about .missionVision .mission .name,
-  .about .missionVision .vision .name,
-  .about .missionVision .values .name {
-    margin-top: 24px;
-  }
-}
 .about .missionVision .focus .des,
 .about .missionVision .mission .des,
 .about .missionVision .vision .des,
@@ -988,6 +972,14 @@ header.headerAnimate {
     font-size: 12px;
   }
 }
+.about .missionVision .focus .text,
+.about .missionVision .mission .text,
+.about .missionVision .vision .text,
+.about .missionVision .values .text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .about .missionVision .focus ul,
 .about .missionVision .mission ul,
 .about .missionVision .vision ul,
@@ -998,21 +990,27 @@ header.headerAnimate {
   flex-wrap: wrap;
   gap: 8px;
   margin: 0;
-  padding-top: 4px;
+  flex: 1;
 }
 .about .missionVision .focus ul li,
 .about .missionVision .mission ul li,
 .about .missionVision .vision ul li,
 .about .missionVision .values ul li {
+  flex: 1;
+  min-width: 45%;
   color: #777;
   font-size: 14px;
   font-weight: bold;
   text-transform: capitalize;
   background-color: rgba(148, 102, 66, 0.1019607843);
-  padding: 4px 12px;
+  padding: 12px 12px;
   border-radius: 4px;
   border: 1px dashed rgba(148, 102, 66, 0.3019607843);
   transition: var(--transition);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 768px) {
   .about .missionVision .focus ul li,
@@ -1313,35 +1311,6 @@ footer .container h6 {
   display: none;
 }
 
-.careersForm {
-  padding: 40px 0;
-}
-.careersForm .title {
-  font-family: "PoppinsBold", Sans-serif;
-  margin: auto;
-  color: var(--darkColor);
-  text-transform: none;
-  padding: 0 24px;
-}
-.careersForm form {
-  padding: 48px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.careersForm form label {
-  font-family: "PoppinsBold", Sans-serif;
-  font-size: 14px;
-}
-.careersForm form .send {
-  background-color: var(--mainColor);
-  padding: 16px;
-  width: min(100% - 24px, 300px);
-  margin: auto;
-  color: var(--whiteColor);
-  border-radius: 100px;
-}
-
 .filepond--credits {
   display: none !important;
 }
@@ -1386,10 +1355,9 @@ footer .container h6 {
 }
 
 .investments {
-  background-color: #f8f8f8;
   position: relative;
   z-index: 2;
-  padding: 100px 0 60px;
+  padding: 60px 0 60px;
 }
 .investments .inner {
   background-color: var(--whiteColor);
@@ -1447,7 +1415,7 @@ footer .container h6 {
 }
 
 .partners {
-  background: var(--whiteColor);
+  background-color: #f8f8f8;
   position: relative;
   z-index: 2;
   padding: 100px 0 60px;
@@ -1603,4 +1571,141 @@ footer .container h6 {
 }
 .flipCard:hover .cardBack {
   transform: rotateY(0deg);
+}
+
+.careerPage {
+  padding: 48px 0;
+}
+.careerPage .job {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+  height: 100%;
+  border: 1px dashed var(--mainColor20);
+  border-radius: 8px;
+}
+.careerPage .job img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: var(--secondColor);
+  border-radius: 8px 8px 0 0;
+}
+.careerPage .job .text {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+.careerPage .job .text .jobTitle {
+  font-weight: bold;
+  color: var(--darkColor);
+}
+.careerPage .job .text .des {
+  font-size: 13px;
+  flex: 1;
+}
+.careerPage .job .text a {
+  margin-top: 16px;
+  text-align: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 13px;
+  background-color: var(--mainColor05);
+  border-radius: 8px;
+  color: var(--mainColor);
+  font-weight: bold;
+}
+
+.careersForm {
+  padding: 40px 0;
+}
+.careersForm .title {
+  font-family: "PoppinsBold", Sans-serif;
+  margin: auto;
+  color: var(--darkColor);
+  text-transform: none;
+  padding: 0 24px;
+}
+.careersForm form {
+  padding: 48px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.careersForm form label {
+  font-family: "PoppinsBold", Sans-serif;
+  font-size: 14px;
+}
+.careersForm form .send {
+  background-color: var(--mainColor);
+  padding: 16px;
+  width: min(100% - 24px, 300px);
+  margin: auto;
+  color: var(--whiteColor);
+  border-radius: 100px;
+}
+
+.jobForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  background-color: var(--mainColor05);
+  border-radius: 8px;
+  position: sticky;
+  top: 90px;
+}
+.jobForm .titleTwo {
+  font-weight: bold;
+  color: var(--mainColor);
+  text-transform: none;
+}
+.jobForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.jobForm form label {
+  font-weight: bold;
+  font-size: 14px;
+}
+.jobForm form .send {
+  background-color: var(--mainColor);
+  padding: 16px;
+  width: min(100% - 24px, 300px);
+  margin: auto;
+  color: var(--whiteColor);
+  border-radius: 100px;
+}
+
+.filepond--credits {
+  display: none !important;
+}
+
+.filepond--image-clip {
+  direction: ltr !important;
+}
+
+.jobDetails .details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.jobDetails .details .jobImg {
+  width: 100%;
+  aspect-ratio: 3/2;
+  max-height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+.jobDetails .details .jobTitle {
+  font-weight: bold;
+  margin: 8px 0;
+  color: var(--darkColor);
 }/*# sourceMappingURL=style.css.map */

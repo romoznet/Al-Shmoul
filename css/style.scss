@@ -1,5 +1,7 @@
 :root {
   --mainColor: #d09458;
+  --mainColor05: hsla(30, 57%, 58%, 0.1);
+  --mainColor20: #d0945833;
   --secondColor: #946642;
   --whiteColor: #ffffff;
   --darkColor: #2c2c2c;
@@ -822,23 +824,17 @@ header {
     }
   }
   .missionVision {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    @media (max-width: 768px) {
-      padding: 0 24px;
-    }
     .focus,
     .mission,
     .vision,
     .values {
-      flex: 1 40%;
       display: flex;
       gap: 20px;
       padding: 32px 24px 24px;
       background-color: #fff;
       border-radius: 12px;
       box-shadow: var(--BigShadow);
+      height: 100%;
       @media (max-width: 768px) {
       }
       .icon {
@@ -869,9 +865,6 @@ header {
         font-family: "PoppinsBold", Sans-serif;
         color: var(--mainColor);
         text-transform: uppercase;
-        @media (max-width: 768px) {
-          margin-top: 24px;
-        }
       }
       .des {
         color: #777;
@@ -881,6 +874,11 @@ header {
           font-size: 12px;
         }
       }
+      .text{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
       ul {
         list-style: none;
         padding: 0;
@@ -889,17 +887,23 @@ header {
         gap: 8px;
         // row-gap: 4px;
         margin: 0;
-        padding-top: 4px;
+        flex: 1;
         li {
+          flex: 1;
+          min-width: 45%;
           color: #777;
           font-size: 14px;
           font-weight: bold;
           text-transform: capitalize;
           background-color: #9466421a;
-          padding: 4px 12px;
+          padding: 12px 12px;
           border-radius: 4px;
           border: 1px dashed #9466424d;
           transition: var(--transition);
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           // &::before {
           //   content: ".";
           //   color: var(--mainColor);
@@ -908,7 +912,6 @@ header {
           @media (max-width: 768px) {
             font-size: 12px;
           }
-
           &:hover{
             background-color: var(--mainColor);
             color: var(--whiteColor);
@@ -1192,34 +1195,6 @@ footer {
     }
   }
 }
-.careersForm {
-  padding: 40px 0;
-  .title {
-    font-family: "PoppinsBold", Sans-serif;
-    margin: auto;
-    color: var(--darkColor);
-    text-transform: none;
-    padding: 0 24px;
-  }
-  form {
-    padding: 48px 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    label {
-      font-family: "PoppinsBold", Sans-serif;
-      font-size: 14px;
-    }
-    .send {
-      background-color: var(--mainColor);
-      padding: 16px;
-      width: min(100% - 24px, 300px);
-      margin: auto;
-      color: var(--whiteColor);
-      border-radius: 100px;
-    }
-  }
-}
 .filepond--credits {
   display: none !important;
 }
@@ -1263,11 +1238,9 @@ footer {
   }
 }
 .investments {
-  background-color: #f8f8f8;
   position: relative;
   z-index: 2;
-  padding: 100px 0 60px;
-
+  padding: 60px 0 60px;
   .inner {
     background-color: var(--whiteColor);
     padding: 24px;
@@ -1326,7 +1299,7 @@ footer {
   }
 }
 .partners {
-  background: var(--whiteColor);
+  background-color: #f8f8f8;
   position: relative;
   z-index: 2;
   padding: 100px 0 60px;
@@ -1387,8 +1360,6 @@ footer {
     }
   }
 }
-
-
 .flipCard {
   width: 100%;
   height: 450px;
@@ -1478,6 +1449,140 @@ footer {
     }
     .cardBack {
       transform: rotateY(0deg);
+    }
+  }
+}
+.careerPage {
+  padding:  48px 0;
+  .job {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+    // box-shadow: var(--BigShadow);
+    height: 100%;
+    border: 1px dashed var(--mainColor20);
+    border-radius: 8px;
+    img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      max-height: 200px;
+      object-fit: cover;
+      background-color: var(--secondColor);
+      border-radius: 8px 8px 0 0;
+    }
+    .text {
+      padding: 8px 16px ;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+      .jobTitle {
+        font-weight: bold;
+        color: var(--darkColor);
+      }
+      .des {
+        font-size: 13px;
+        flex: 1;
+      }
+      a {
+        margin-top: 16px;
+        text-align: center;
+        justify-content: center;
+        padding: 8px 16px;
+        font-size: 13px;
+        background-color: var(--mainColor05);
+        border-radius: 8px;
+        color: var(--mainColor);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.careersForm {
+  padding: 40px 0;
+  .title {
+    font-family: "PoppinsBold", Sans-serif;
+    margin: auto;
+    color: var(--darkColor);
+    text-transform: none;
+    padding: 0 24px;
+  }
+  form {
+    padding: 48px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    label {
+      font-family: "PoppinsBold", Sans-serif;
+      font-size: 14px;
+    }
+    .send {
+      background-color: var(--mainColor);
+      padding: 16px;
+      width: min(100% - 24px, 300px);
+      margin: auto;
+      color: var(--whiteColor);
+      border-radius: 100px;
+    }
+  }
+}
+
+.jobForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  background-color: var(--mainColor05);
+  border-radius: 8px;
+  position: sticky;
+  top: 90px;
+  .titleTwo {
+    font-weight: bold;
+    color: var(--mainColor);
+    text-transform: none;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .send {
+      background-color: var(--mainColor);
+      padding: 16px;
+      width: min(100% - 24px, 300px);
+      margin: auto;
+      color: var(--whiteColor);
+      border-radius: 100px;
+    }
+  }
+}
+.filepond--credits {
+  display: none !important;
+}
+.filepond--image-clip {
+  direction: ltr !important;
+}
+.jobDetails{
+  .details{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .jobImg{
+      width: 100%;
+      aspect-ratio: 3/2;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .jobTitle{
+      font-weight: bold;
+      margin: 8px 0;
+      color: var(--darkColor);
     }
   }
 }
